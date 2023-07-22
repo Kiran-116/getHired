@@ -1,5 +1,6 @@
 const Company = require('../models/companyModel')
-const sendToken = require('../utils/jwtToken')
+const sendToken = require('../utils/jwtToken');
+const Jobs = require('../models/jobModel')
 
 // register a company
 exports.registerCompany = async (req,res,next)=>{
@@ -83,6 +84,16 @@ exports.updatePasswordCompany = async(req,res,next)=>{
 
 
 // delete Company
+exports.deleteCompany = async (req,res,next)=>{
+    await Company.findByIdAndDelete(req.user.id);
+    await Jobs.deleteMany({company:req.user._id});
+
+    res.status(201)
+    .json({
+        success:true,
+        message:"company is successfully deleted"
+    })
+}
 
 // reset password
 
