@@ -97,6 +97,15 @@ exports.updateProfile = async(req,res,next)=>{
 
 
 // delete user
+exports.deleteUser = async (req,res,next)=>{
+    await User.findByIdAndDelete(req.user.id)
+
+    res.status(201).
+    json({
+        success:true,
+        message:"user deleted successfully"
+    })
+}
 
 // reset password
 
