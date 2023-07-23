@@ -21,7 +21,7 @@ exports.isAuthenticatedCompany = async(req,res,next)=>{
     const {token} = req.cookies;
 
     if(!token){
-        return next(new Error("Please Login to access this resource"));
+        return next(new Error("you are not a valid company, Please login to continue"));
     }   
 
     const decodedData = jwt.verify(token,"ljklkj237847sdfujdssd@$#$%#$%jsdfj289")

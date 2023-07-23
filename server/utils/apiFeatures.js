@@ -6,13 +6,23 @@ class ApiFeatures {
 
   search() {
     const keyword = this.queryStr.keyword
-      ? {
-          title: {
-            $regex: this.queryStr.keyword,
-            $options: "i",
+    ? {
+        $or: [
+          {
+            title: {
+              $regex: this.queryStr.keyword,
+              $options: "i",
+            },
           },
-        }
-      : {};
+          {
+            job_category: {
+              $regex: this.queryStr.keyword,
+              $options: "i",
+            },
+          },
+        ],
+      }
+    : {};
 
     this.query = this.query.find({ ...keyword });
     return this;
@@ -34,11 +44,32 @@ class ApiFeatures {
     }
 
     if (queryCopy.job_category) {
-      filteredQuery = filteredQuery.find({ job_category: { $regex: queryCopy.job_category, $options: "i" } });
+      if (Array.isArray(queryCopy.job_category)) {
+
+        const jobRegex = queryCopy.job_category.map((type) => ({
+          job_category: { $regex: type, $options: "i" },
+        }));
+
+        filteredQuery = filteredQuery.find({ $or: jobRegex });
+      }
+      else{
+        filteredQuery = filteredQuery.find({ job_category: { $regex: queryCopy.job_category, $options: "i" } });
+      }
     }
 
     if (queryCopy.job_type) {
-      filteredQuery = filteredQuery.find({ job_type: { $regex: queryCopy.job_type, $options: "i" } });
+
+      if (Array.isArray(queryCopy.job_type)) {
+
+        const jobRegex = queryCopy.job_type.map((type) => ({
+          job_type: { $regex: type, $options: "i" },
+        }));
+
+        filteredQuery = filteredQuery.find({ $or: jobRegex });
+      }
+      else{
+        filteredQuery = filteredQuery.find({ job_type: { $regex: queryCopy.job_type, $options: "i" } });
+      }
     }
 
     if (queryCopy.experience_level) {
@@ -46,7 +77,18 @@ class ApiFeatures {
     }
 
     if (queryCopy.skills_required) {
-      filteredQuery = filteredQuery.find({ skills_required: { $regex: queryCopy.skills_required, $options: "i" } });
+      // Check if the skills_required field is an array
+      if (Array.isArray(queryCopy.skills_required)) {
+        // Create an array of regex expressions for each skill
+        const skillsRegex = queryCopy.skills_required.map((skill) => ({
+          skills_required: { $regex: skill, $options: "i" },
+        }));
+        // Use the $or operator to match any of the skills in the array
+        filteredQuery = filteredQuery.find({ $or: skillsRegex });
+      } else {
+        // If it's a single skill, perform the regular filtering
+        filteredQuery = filteredQuery.find({ skills_required: { $regex: queryCopy.skills_required, $options: "i" } });
+      }
     }
 
     this.query = filteredQuery;

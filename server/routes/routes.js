@@ -4,7 +4,7 @@ const router = express.Router();
 const {isAuthenticatedCompany, isAuthenticatedUser} = require('../middleware/auth')
 const {registerUser, loginUser, getUserDetails, getAllUser, updatePassword, updateProfile, deleteUser} = require('../controllers/userController');
 const {registerCompany, loginCompany, getCompanyrDetails, getAllCompany, updatePasswordCompany, deleteCompany}  = require('../controllers/companyController');
-const {createJob, getAllJobs, getAllCompanyJobs} = require('../controllers/jobController')
+const {createJob, getAllJobs, getAllCompanyJobs, getLatestIntern, getLatestJob, delteJobWithId} = require('../controllers/jobController');
 
 
 // user routes
@@ -20,13 +20,17 @@ router.post('/company/register',registerCompany);
 router.post('/company/login',loginCompany);
 router.route('/company/me').get(isAuthenticatedCompany,getCompanyrDetails);
 router.route('/company/password/update').put(isAuthenticatedCompany,updatePasswordCompany);
-router.get('/company/me/delete',isAuthenticatedCompany,deleteCompany)
+router.get('/company/me/delete',isAuthenticatedCompany,deleteCompany);
 
 
 // job routes
 router.post('/job/create',isAuthenticatedCompany,createJob);
 router.get('/job/alljobs',getAllJobs);
 router.get('/jobs/me',isAuthenticatedCompany,getAllCompanyJobs);
+router.get('/job/latest/intern',getLatestIntern)
+router.get('/job/latest/jobs',getLatestJob);
+router.delete('/job/:id', isAuthenticatedCompany, delteJobWithId)
+
 
 
 

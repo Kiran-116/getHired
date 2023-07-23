@@ -11,6 +11,8 @@ exports.registerCompany = async (req,res,next)=>{
       password
     });
 
+    // const user = await Company.create(req.body)
+
     sendToken(user, 201, res);
     console.log('Company registered successfully');
 }
@@ -81,6 +83,13 @@ exports.updatePasswordCompany = async(req,res,next)=>{
 
 
 // update Company profile
+exports.updateCompany = async(req,res,next)=>{
+    const newData = {
+        description:req.body.description,
+    }
+
+    const job = await Job.findByIdAndUpdate(req.user.id,)
+}
 
 
 // delete Company
