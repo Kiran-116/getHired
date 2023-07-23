@@ -5,13 +5,21 @@ const ApiFeatures = require('../utils/apiFeatures')
 exports.createJob = async (req,res,next)=>{
     req.body.company = req.user.id;
 
-    const job = await Job.create(req.body);
+    const jobs = [];
+
+    req.body.forEach(async (jobData)=>{
+        jobData.company = req.user.id;
+        const job = await Job.create(jobData);
+        await jobs.push(job);
+    })
+
+    // const job = await Job.create(req.body);
 
     res
         .status(201)
         .json({
             success:true,
-            job
+            jobs
         })
 }
 
@@ -45,6 +53,35 @@ exports.getAllJobs = async(req,res,next)=>{
 }
 
 
+// delete job with id
+exports.delteJobWithId = async(req,res,next)=>{
+    const job = Job.findByIdAndDelet(req.params.id);
+    res.status(201).json({
+        success:true,
+        message:"job deleted successfully"
+    })
+}
+
+
+// top 5 latest jobs
+exports.getLatestIntern = async(req,res,next)=>{
+    const interns = await Job.find({job_type:"Internship"}).sort({posted_date: -1}).limit(5);
+    res.status(201).json({
+        success:true,
+        interns
+    })
+}
+
+// top 5 lates full time jobs
+exports.getLatestJob = async(req,res,next)=>{
+    const jobs = await Job.find({job_type: "Full-Time"}).sort({posted_date: -1}).limit(5);
+    res.status(201).json({
+        success:true,
+        jobs
+    })
+}
+
+// get the jobs of particular company
 exports.getAllCompanyJobs = async(req,res,next)=>{
     const jobs = await Job.find({company:req.user._id});
 

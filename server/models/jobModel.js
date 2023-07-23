@@ -28,9 +28,11 @@ const jobSchema = new mongoose.Schema({
   skills_required: [{
     type: String
   }],
-  education_required: {
-    type: String
-  },
+  education_required: [
+    {
+      type: String
+    }
+  ],
   salary: {
     type: String
   },
@@ -50,7 +52,8 @@ const jobSchema = new mongoose.Schema({
   }],
   work: {
     from: {
-      type: String
+      type: String,
+      enum: ['On-Site', 'Work From Home', 'Remote', 'Hybrid']
     },
     schedule: {
       type: String
@@ -63,7 +66,7 @@ const jobSchema = new mongoose.Schema({
     {
         type: String,
     }
-],
+  ],
   duration: {
     type: String
   }
