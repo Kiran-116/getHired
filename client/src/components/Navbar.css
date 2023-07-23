@@ -1,0 +1,56 @@
+/* Navbar.css */
+
+/* Navbar container */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #fff; /* Navbar background color */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+    padding: 10px 0;
+    z-index: 100; /* Ensure the navbar is above other elements */
+  }
+  
+  /* Container for logo and links */
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  /* Navbar logo style */
+  .navbar-logo {
+    font-size: 26px;
+    font-weight: bold;
+    color: #333; /* Logo color */
+    text-decoration: none;
+  }
+  
+  /* Navbar links style */
+  .navbar-links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Navbar link item style */
+  .navbar-links li {
+    margin-right: 20px;
+  }
+  
+  /* Style the links */
+  .navbar-links a {
+    color: #333; /* Link color */
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  /* Change link color on hover */
+  .navbar-links a:hover {
+    color: #007bff; /* Hover color */
+  }
+  
