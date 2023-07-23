@@ -1,0 +1,27 @@
+/* Footer.css */
+/* Footer container */
+.footer {
+    background-color: #000; /* Black background */
+    color: #fff; /* White text color */
+    padding: 30px 0; /* Add some padding at the top and bottom */
+  }
+  
+  /* Center align the content inside the container */
+  .container {
+    display: flex;
+    justify-content: center;
+  }
+  
+  /* Style for the social icons */
+  .social-icons a {
+    color: #fff;
+    font-size: 24px;
+    margin-right: 10px;
+  }
+  
+  /* Footer bottom section */
+  .footer-bottom {
+    text-align: center; /* Center align the text */
+    margin-top: 20px; /* Add some space between content and footer */
+  }
+  

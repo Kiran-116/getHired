@@ -1,0 +1,451 @@
+/* Home.css */
+.home-container {
+    padding: 20px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .recent-job-offers-heading {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .slideshow-container {
+    width: 100%; /* Set the width of the slideshow container to cover the entire screen */
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .slides {
+    display: flex;
+    transition: transform 0.8s ease-in-out;
+  }
+  
+  .slide {
+    flex: 0 0 100%; /* Each slide takes 100% of the container width */
+  }
+  
+  .slide img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .overlay-text {
+    position: absolute;
+    font-size: 32px;
+    font-weight: bold;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .arrow-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+  
+  .arrow-buttons button {
+    font-size: 24px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .company-icons {
+    width: 100%; /* Set the width of the company icons container to cover the entire screen */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    margin-top: 20px;
+  }
+  
+  .company-icon {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    margin: 0 10px;
+    border-radius: 50%;
+    border: 2px solid white;
+  }
+  
+  .card-row-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+  }
+  
+  .card-container {
+    width: 100%; /* Make the card container cover the entire width */
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+  }
+  
+  .card {
+    flex: 0 0 calc(33.33% - 20px); /* Set the width of each card and adjust the spacing */
+    height: 300px; /* Set the desired height of the cards */
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card h3 {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .card p {
+    margin: 5px 0;
+  }
+  
+  .card-details {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .card i {
+    margin-right: 5px;
+  }
+  /* Home.css */
+  .home-container {
+      padding: 20px;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .recent-job-offers-heading {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+    
+    .slideshow-container {
+      width: 100%;
+      overflow: hidden;
+      position: relative;
+      border-radius: 10px;
+    }
+    
+    .slides {
+      display: flex;
+      animation: slideAnimation 15s linear infinite; /* Added animation for sliding effect */
+    }
+    
+    @keyframes slideAnimation {
+      0% {
+        transform: translateX(0);
+      }
+      20% {
+        transform: translateX(-100%);
+      }
+      40% {
+        transform: translateX(-200%);
+      }
+      60% {
+        transform: translateX(-300%);
+      }
+      80% {
+        transform: translateX(-400%);
+      }
+      100% {
+        transform: translateX(-500%);
+      }
+    }
+    
+    .slide {
+      flex: 0 0 100%;
+      border-radius: 10px;
+    }
+    
+    .slide img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      object-fit: cover;
+    }
+    
+    .overlay-text {
+      position: absolute;
+      font-size: 32px;
+      font-weight: bold;
+      color: white;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    
+    .arrow-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 10px;
+    }
+    
+    .arrow-buttons button {
+      font-size: 24px;
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      color: #444;
+    }
+    
+    .arrow-buttons button:hover {
+      color: #222;
+    }
+    
+    .company-icons {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      margin-top: 20px;
+    }
+    
+    .company-icon {
+      width: 50px;
+      height: 50px;
+      object-fit: cover;
+      margin: 0 10px;
+      border-radius: 50%;
+      border: 2px solid white;
+    }
+    
+    .card-row-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+    
+    .card-container {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+    
+    .card {
+      flex: 0 0 calc(33.33% - 20px);
+      height: 300px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      padding: 10px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    .card h3 {
+      font-size: 18px;
+      font-weight: bold;
+    }
+    
+    .card p {
+      margin: 5px 0;
+    }
+    
+    .card-details {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    
+    .card i {
+      margin-right: 5px;
+    }
+  /* Home.css */
+  .home-container {
+      padding: 20px;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .recent-job-offers-heading {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+    
+    .slideshow-container {
+      width: 100%;
+      overflow: hidden;
+      position: relative;
+      border-radius: 10px;
+    }
+    
+    .slides {
+      display: flex;
+      animation: slideAnimation 20s linear infinite;
+    }
+    
+    @keyframes slideAnimation {
+      0%, 100% {
+        transform: translateX(0);
+      }
+      20% {
+        transform: translateX(-100%);
+      }
+      40% {
+        transform: translateX(-200%);
+      }
+      60% {
+        transform: translateX(-300%);
+      }
+      80% {
+        transform: translateX(-400%);
+      }
+    }
+    
+    .slide {
+      flex: 0 0 100%;
+      border-radius: 10px;
+    }
+    
+    .slide img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      object-fit: cover;
+    }
+    
+    .overlay-text {
+      position: absolute;
+      font-size: 32px;
+      font-weight: bold;
+      color: white;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    
+    .arrow-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 10px;
+    }
+    
+    .arrow-buttons button {
+      font-size: 24px;
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      color: #444;
+    }
+    
+    .arrow-buttons button:hover {
+      color: #222;
+    }
+    
+    .company-icons {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      margin-top: 20px;
+    }
+    
+    .company-icon {
+      width: 50px;
+      height: 50px;
+      object-fit: cover;
+      margin: 0 10px;
+      border-radius: 50%;
+      border: 2px solid white;
+    }
+    
+    .card-row-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+    
+    .card-container {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+    
+    .card {
+      flex: 0 0 calc(33.33% - 20px);
+      height: 300px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      padding: 10px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    .card h3 {
+      font-size: 18px;
+      font-weight: bold;
+    }
+    
+    .card p {
+      margin: 5px 0;
+    }
+    
+    .card-details {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    
+    .card i {
+      margin-right: 5px;
+    }
+      
+    /* abey */
+    /* Home.css */
+  
+  /* Increase logo size */
+  .company-icon {
+      width: 60px;
+      height: 60px;
+      object-fit: cover;
+      margin: 0 10px;
+      border-radius: 50%;
+      border: 2px solid white;
+    }
+    
+    /* Decrease font size for Home, Contact, and About */
+    .navbar ul li a {
+      font-size: 16px;
+    }
+    
+    /* Adjust font size for Recent Job Offers */
+    .recent-job-offers-heading {
+      font-size: 20px;
+    }
+    
+    /* Adjust font size for work and company headings */
+    .card h3 {
+      font-size: 16px;
+    }
+    
+    /* Adjust font size for other details in job cards */
+    .card p {
+      font-size: 14px;
+    }
+    
