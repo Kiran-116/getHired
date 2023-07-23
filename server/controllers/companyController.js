@@ -4,14 +4,14 @@ const Jobs = require('../models/jobModel')
 
 // register a company
 exports.registerCompany = async (req,res,next)=>{
-    // const { name, email, password } = req.body;
-    // const user = await Company.create({
-    //   name,
-    //   email,
-    //   password
-    // });
+    const { name, email, password } = req.body;
+    const user = await Company.create({
+      name,
+      email,
+      password
+    });
 
-    const user = await Company.create(req.body)
+    // const user = await Company.create(req.body)
 
     sendToken(user, 201, res);
     console.log('Company registered successfully');

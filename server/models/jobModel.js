@@ -33,6 +33,10 @@ const jobSchema = new mongoose.Schema({
       type: String
     }
   ],
+  number_of_applicants: {
+    type: Number,
+    default: 0
+  },
   salary: {
     type: String
   },

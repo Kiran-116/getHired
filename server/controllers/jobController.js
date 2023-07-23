@@ -1,5 +1,6 @@
 const Job = require('../models/jobModel')
 const ApiFeatures = require('../utils/apiFeatures')
+const Company = require('../models/companyModel')
 
 // create JOB -- admin
 exports.createJob = async (req,res,next)=>{
@@ -7,10 +8,18 @@ exports.createJob = async (req,res,next)=>{
 
     const jobs = [];
 
+    const company = Company.findById(req.user.id);
+
     req.body.forEach(async (jobData)=>{
-        jobData.company = req.user.id;
+        jobData.company = {
+            id: req.user.id,
+            name: company.name
+        };
         const job = await Job.create(jobData);
-        await jobs.push(job);
+        if(job)
+        {
+            jobs.push(job);
+        }
     })
 
     // const job = await Job.create(req.body);
